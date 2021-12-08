@@ -16,9 +16,6 @@ Post.init({
         validate: {
             len: [3]
         }
-    },
-    timestamp: {
-        type: DataTypes.DATE
     }
 },{
     hooks: {

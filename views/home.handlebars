@@ -7,17 +7,11 @@
     <input type="submit" value="yeah">
 </form>
 
-{{#each post}}{{! -- //posts?? -- }}
-<div class="post">
-    <h5>{{User.username}} at {{Post.timestamp}}</h5>
+{{#each post}}
+<div class="post" style="border: solid black 3px; margin: 5px">
+    <h5>{{User.username}}</h5>
     <h3>{{title}}</h3>
     <p>{{content}}</p>
 </div>
-{{#if loggedIn}}
-<form class="commentform">
-    <p>yeah if you wanna leave a comment go ahead. maybe someone will respond</p>
-    <input type="text" id="comment{{id}}" value="comment">
-    <input type="submit" value="yeah">
-</form>
-{{/if}}
 {{/each}}
+{{!-- TODO: add comment functionality --}}

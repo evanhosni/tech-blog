@@ -13,9 +13,6 @@ const hbs = expresshandlebars.create({})
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')//
 app.use(express.static("public"))
-app.use(express.urlencoded({extended:true}))
-app.use(express.json())
-app.use(routes)
 
 app.use(session({
     secret: process.env.SESSION_SECRET,
@@ -28,6 +25,10 @@ app.use(session({
         db: sequelize
     }),
 }))
+
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
+app.use(routes)
 
 sequelize.sync({force:false}).then(function() {
     app.listen(PORT, function() {

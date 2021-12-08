@@ -8,15 +8,15 @@ const {Comment} = require('../models')
 
 router.get('/',(req,res)=>{
     Post.findAll({
-        order:["createdAt"],//change to timestamp?
+        order:["createdAt"],
         include:[User]
     }).then((dat)=>{
         const data = dat.map(post=>post.get({plain:true}))
-        // if(req.session.user){
-        //     for(const obj of data) {
-        //         obj.loggedIn=true
-        //     }
-        // }
+        if(req.session.user){
+            for(const obj of data) {
+                obj.loggedIn=true
+            }
+        }
         res.render("home",{
             post:data
         })
@@ -61,7 +61,7 @@ router.post('/login',(req,res)=>{
             }
         }
     }).catch(err=>{
-         console.log(err);
+        console.log(err);
         res.status(500).json(err);
     })
 })
@@ -87,6 +87,7 @@ router.post('/post',(req,res)=>{
         title: req.body.title,
         content: req.body.content
     }).then(newPost=>{
+        res.json(newPost)
         res.redirect('/')
     }).catch(err=>{
         console.log(err)

@@ -9,7 +9,7 @@ User.init({
         type: DataTypes.STRING,
         unique: true,
         validate: {
-            is: /^[a-zA-Z0-9_]*$/i,
+            isAlphanumeric: true,
             len: [5, 20]
         }
     },
