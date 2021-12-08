@@ -100,6 +100,7 @@ router.post('/comment',(req,res)=>{
         postId: req.body.content,
         userId: req.session.user.id
     }).then(newComment=>{
+        res.json(newComment)
         res.redirect('/')
     }).catch(err=>{
         console.log(err)

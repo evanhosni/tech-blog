@@ -6,7 +6,7 @@ post.addEventListener("submit",(e)=>{
     const post = {
         title: document.getElementById('posttitle').value,
         content: document.getElementById('postcontent').value,
-        timestamp: Date.now()
+        // timestamp: Date.now()
     }
     fetch("/post",{
         method:"POST",
