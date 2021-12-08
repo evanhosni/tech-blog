@@ -1,0 +1,20 @@
+<h1>welcome to the lonely blog, where everything is lowercase... yeah, whats on your mind?</h1>
+
+<form id="postform">
+    <input type="text" value="yeah if you wanna make a post just type here. its cool if u dont tho">
+    <input type="submit" value="yeah">
+</form>
+
+{{#each post}}{{! -- //posts?? -- }}
+<div class="post">
+    <h5>{{User.username}} at {{Post.timestamp}}</h5>
+    <h3>{{title}}</h3>
+    <p>{{content}}</p>
+</div>
+{{#if loggedIn}}
+<form id="commentform">
+    <input type="text" value="yeah if you wanna leave a comment go ahead. maybe someone will respond">
+    <input type="submit" value="yeah">
+</form>
+{{/if}}
+{{/each}}
