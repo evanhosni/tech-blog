@@ -1,15 +1,16 @@
 const post = document.getElementById('postform')
-
+const comment = document.querySelector('.commentform')
 
 post.addEventListener("submit",(e)=>{
     e.preventDefault()
     const post = {
-        username: document.getElementById('username').value(),
-        password: document.getElementById('password').value()
+        title: document.getElementById('posttitle').value,
+        content: document.getElementById('postcontent').value,
+        timestamp: Date.now()
     }
-    fetch("/login",{
+    fetch("/post",{
         method:"POST",
-        body:JSON.stringify(user),
+        body:JSON.stringify(post),
         headers:{
             "Content-Type":"application/json"
         }
@@ -17,7 +18,29 @@ post.addEventListener("submit",(e)=>{
         if(res.ok){
             location.href = "/"
         } else {
-            alert("hmm that didnt work. maybe wrong username or password? idk")
+            alert("wait a sec. ur post didnt post wtf")
+        }
+    })
+})
+
+comment.addEventListener("submit",(e)=>{
+    e.preventDefault()
+    let id = e.target.id
+    const comment = {
+        comment: document.getElementById(`comment${id}`).value,
+        postId: id
+    }
+    fetch("/comment",{
+        method:"POST",
+        body:JSON.stringify(comment),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    }).then(res=>{
+        if(res.ok){
+           location.href = "/"
+        } else {
+            alert("ahh man. dang...")
         }
     })
 })

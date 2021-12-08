@@ -1,7 +1,9 @@
 <h1>welcome to the lonely blog, where everything is lowercase... yeah, whats on your mind?</h1>
 
 <form id="postform">
-    <input type="text" value="yeah if you wanna make a post just type here. its cool if u dont tho">
+    <p>yeah if you wanna make a post just type here. its cool if u dont tho</p>
+    <input type="text" id="posttitle" value="title">
+    <input type="text" id="postcontent" value="body">
     <input type="submit" value="yeah">
 </form>
 
@@ -12,8 +14,9 @@
     <p>{{content}}</p>
 </div>
 {{#if loggedIn}}
-<form id="commentform">
-    <input type="text" value="yeah if you wanna leave a comment go ahead. maybe someone will respond">
+<form class="commentform">
+    <p>yeah if you wanna leave a comment go ahead. maybe someone will respond</p>
+    <input type="text" id="comment{{id}}" value="comment">
     <input type="submit" value="yeah">
 </form>
 {{/if}}

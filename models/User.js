@@ -25,11 +25,7 @@ User.init({
             newUser.username = newUser.username.toLowerCase();
             newUser.password = bcrypt.hashSync(newUser.password,3)
             return newUser
-        },
-        // beforeUpdate(updatedUser) {
-        //     updatedUser.password = bcrypt.hashSync(updatedUser.password,3)
-        //     return updatedUser
-        // }
+        }
     },
     sequelize
 })

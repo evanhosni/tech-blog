@@ -4,8 +4,8 @@ const signup = document.getElementById('signup')
 login.addEventListener("submit",(e)=>{
     e.preventDefault()
     const user = {
-        username: document.getElementById('username').value(),
-        password: document.getElementById('password').value()
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value
     }
     fetch("/login",{
         method:"POST",
@@ -24,12 +24,12 @@ login.addEventListener("submit",(e)=>{
 
 signup.addEventListener('submit',(e)=>{
     e.preventDefault()
-    // e.stopPropagation()
+    e.stopPropagation()//
     const newUser = {
-        username: document.getElementById('username').value(),
-        password: document.getElementById('password').value()
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value
     }
-    fetch("/login",{//signup?
+    fetch("/signup",{//login?
         method:"POST",
         body:JSON.stringify(newUser),
         headers:{
